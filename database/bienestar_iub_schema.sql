@@ -19,9 +19,9 @@
 -- Current Database: `sql10835654`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sql10835654` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+-- CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sql10835654` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 
-USE `sql10835654`;
+-- USE `sql10835654`;
 
 --
 -- Table structure for table `actividades_actividad`
@@ -35,12 +35,12 @@ CREATE TABLE `actividades_actividad` (
   `nombre` varchar(200) NOT NULL,
   `descripcion` longtext NOT NULL,
   `fecha` date NOT NULL,
-  `hora_inicio` time(6) NOT NULL,
-  `hora_fin` time(6) NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `hora_fin` time NOT NULL,
   `lugar` varchar(200) NOT NULL,
-  `cupo_maximo` int(10) unsigned NOT NULL CHECK (`cupo_maximo` >= 0),
+  `cupo_maximo` int(10) unsigned NOT NULL,
   `estado` varchar(15) NOT NULL,
-  `creada_en` datetime(6) NOT NULL,
+  `creada_en` datetime NOT NULL,
   `responsable_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `actividades_activida_responsable_id_1deb221a_fk_usuarios_` (`responsable_id`),
@@ -68,9 +68,9 @@ CREATE TABLE `actividades_inscripcion` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `codigo_qr` varchar(36) NOT NULL,
   `estado` varchar(12) NOT NULL,
-  `fecha_inscripcion` datetime(6) NOT NULL,
+  `fecha_inscripcion` datetime NOT NULL,
   `asistio` tinyint(1) NOT NULL,
-  `fecha_validacion_asistencia` datetime(6) DEFAULT NULL,
+  `fecha_validacion_asistencia` datetime DEFAULT NULL,
   `actividad_id` bigint(20) NOT NULL,
   `usuario_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
@@ -212,7 +212,7 @@ DROP TABLE IF EXISTS `django_admin_log`;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `django_admin_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `action_time` datetime(6) NOT NULL,
+  `action_time` datetime NOT NULL,
   `object_id` longtext DEFAULT NULL,
   `object_repr` varchar(200) NOT NULL,
   `action_flag` smallint(5) unsigned NOT NULL CHECK (`action_flag` >= 0),
@@ -281,7 +281,7 @@ CREATE TABLE `django_migrations` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `applied` datetime(6) NOT NULL,
+  `applied` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -327,7 +327,7 @@ DROP TABLE IF EXISTS `django_session`;
 CREATE TABLE `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
-  `expire_date` datetime(6) NOT NULL,
+  `expire_date` datetime NOT NULL,
   PRIMARY KEY (`session_key`),
   KEY `django_session_expire_date_a5c62663` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -352,7 +352,7 @@ DROP TABLE IF EXISTS `usuarios_usuario`;
 CREATE TABLE `usuarios_usuario` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `password` varchar(128) NOT NULL,
-  `last_login` datetime(6) DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
   `username` varchar(150) NOT NULL,
   `first_name` varchar(150) NOT NULL,
@@ -360,7 +360,7 @@ CREATE TABLE `usuarios_usuario` (
   `email` varchar(254) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `date_joined` datetime(6) NOT NULL,
+  `date_joined` datetime NOT NULL,
   `tipo_documento` varchar(2) NOT NULL,
   `numero_documento` varchar(20) NOT NULL,
   `correo_institucional` varchar(254) NOT NULL,
