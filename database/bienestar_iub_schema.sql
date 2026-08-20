@@ -16,12 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `if0_42705078_bienestar`
+-- Current Database: `bienestar`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `if0_42705078_bienestar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `bienestar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 
-USE `if0_42705078_bienestar`;
+USE `bienestar`;
 
 --
 -- Table structure for table `actividades_actividad`

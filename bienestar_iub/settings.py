@@ -96,13 +96,11 @@ WSGI_APPLICATION = 'bienestar_iub.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME', 'bienestar_iub'),
-        # En XAMPP, por defecto el usuario de MySQL es 'root' sin contraseña.
-        'USER': os.environ.get('DB_USER', 'root'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        # Puerto por defecto de MySQL en XAMPP: 3306.
-        'PORT': os.environ.get('DB_PORT', '3306'),
+        'NAME': 'sql10835654',
+        'USER': 'sql10835654',
+        'PASSWORD': 'Ngyg3nFT7D',
+        'HOST': 'sql10.freesqldatabase.com',
+        'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
