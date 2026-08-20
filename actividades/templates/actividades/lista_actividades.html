@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Actividades de Bienestar Universitario</h1>
+{% if messages %}
+  <ul>{% for m in messages %}<li>{{ m }}</li>{% endfor %}</ul>
+{% endif %}
+<table border="1" cellpadding="6">
+  <tr>
+    <th>Nombre</th><th>Fecha</th><th>Lugar</th><th>Cupos disponibles</th><th>Estado</th><th></th>
+  </tr>
+  {% for a in actividades %}
+  <tr>
+    <td>{{ a.nombre }}</td>
+    <td>{{ a.fecha }} {{ a.hora_inicio }}</td>
+    <td>{{ a.lugar }}</td>
+    <td>{{ a.cupos_disponibles }} / {{ a.cupo_maximo }}</td>
+    <td>{{ a.get_estado_display }}</td>
+    <td>
+      {% if a.tiene_cupo %}
+        <a href="{% url 'inscribirse' a.id %}">Inscribirme</a>
+      {% else %}
+        Sin cupo
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

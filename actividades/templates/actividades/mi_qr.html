@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Tu código de inscripción</h1>
+<p><strong>Actividad:</strong> {{ inscripcion.actividad.nombre }}</p>
+<p><strong>Código:</strong> {{ inscripcion.codigo_qr }}</p>
+<img src="{% url 'imagen_qr' inscripcion.id %}" alt="Código QR" />
+<p>Presenta este código (o el QR) al personal de Bienestar para registrar tu asistencia.</p>
+{% endblock %}
