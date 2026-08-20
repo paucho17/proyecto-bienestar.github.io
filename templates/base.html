@@ -1,7 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="utf-8"><title>Bienestar Universitario IUB</title></head>
+<head>
+    <meta charset="utf-8">
+    <title>Bienestar Universitario IUB</title>
+
+    {% static 'css/style.css' %}
+</head>
 <body>
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </body>
 </html>
